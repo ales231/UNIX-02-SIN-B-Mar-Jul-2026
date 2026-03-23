@@ -6,4 +6,3 @@ gpg --list-keys
 gpg --armor --export
 gpg --armor --export alexfalbant@gmail.com> mi_llave_publica.asc
 cat mi_llave_publica.asc
-gpg --list-secret-keys -keyid-format=long  #para listar las llaves
