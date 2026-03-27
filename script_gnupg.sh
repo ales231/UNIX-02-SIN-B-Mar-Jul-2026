@@ -8,3 +8,6 @@ gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado.txt #Con este
 cat doc_no_cifrado_firmado.txt #displays the full contents of the file doc_no_cifrado_firmado.txt in the terminal.
 gpg --verify MICOMPA_doc_no_cifrado_firmado.txt #checks whether the digital signature of the file MICOMPA_doc_no_cifrado_firmado.txt is valid and whether it was really made with the signer’s key.
 gpg --edit-key 573E1A32AF37CBFA47B03919B84A19B106C03AD7 #opens the GPG key management menu for the key with that ID, allowing you to inspect, trust, modify, or manage that key.
+gpg --sign-key 573E1A32AF37CBFA47B03919B84A19B106C03AD7 #uses your private key to sign that public key, showing that you trust it and confirm it belongs to that person.
+gpg --output doc_no_cifrado_firmado_binario.txt --sign doc_no_cifrado.txt #creates a digitally signed binary version of doc_no_cifrado.txt and saves it as doc_no_cifrado_firmado_binario.txt using your private key.
+gpg --output firma_separada_doc_no_cifrado.sig --detach-sign doc_no_cifrado.txt #creates a separate digital signature file for doc_no_cifrado.txt and saves it as firma_separada_doc_no_cifrado.sig using your private key.
