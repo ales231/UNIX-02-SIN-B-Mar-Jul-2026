@@ -1,9 +1,9 @@
-gpg --list-secret-keys -keyid-format=long  #para listar las llaves
-gpg --armor --export-secret-keys 2BD74A3FCDD98B69 #con nuestra firma ejecutamos este comando y exporta tu llave privada
-gpg --list-keys #antes de hacer publica vamos a listar las llaves
-gpg --import MICOMPA_llave_publica.asc #con esto exportamos la llave de my friend
-gpg --output doc_no_cifrado.txt --encrypt --recipient 573E1A32AF37CBFA47B03919B84A19B106C03AD7 doc_no_cifrado.txt #usamos el hash de la clave publica que importamos de nuestro compañero para cifrar el documento
-gpg --decrypt MICOMPA_doc_cifrado.txt #lo traducimos a nuestro idioma el mensaje que nos mando nuestro companero
+gpg --list-secret-keys -keyid-format=long  #To list the keys.
+gpg --armor --export-secret-keys 2BD74A3FCDD98B69 #Using our signature, we ran this command and exported your private key.
+gpg --list-keys #Before making it public, we are going to list the keys.
+gpg --import MICOMPA_llave_publica.asc #With this, we exported my friend’s key.
+gpg --output doc_no_cifrado.txt --encrypt --recipient 573E1A32AF37CBFA47B03919B84A19B106C03AD7 doc_no_cifrado.txt #We used the hash of the public key that we imported from our classmate to encrypt the document.
+gpg --decrypt MICOMPA_doc_cifrado.txt #We translated into our language the message that our classmate sent us.
 gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado.txt #Con este comando firmamos en texto limpio nuestro documento
 cat doc_no_cifrado_firmado.txt #displays the full contents of the file doc_no_cifrado_firmado.txt in the terminal.
 gpg --verify MICOMPA_doc_no_cifrado_firmado.txt #checks whether the digital signature of the file MICOMPA_doc_no_cifrado_firmado.txt is valid and whether it was really made with the signer’s key.
