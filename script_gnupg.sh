@@ -3,5 +3,8 @@ gpg --armor --export-secret-keys 2BD74A3FCDD98B69 #con nuestra firma ejecutamos 
 gpg --list-keys #antes de hacer publica vamos a listar las llaves
 gpg --import MICOMPA_llave_publica.asc #con esto exportamos la llave de my friend
 gpg --output doc_no_cifrado.txt --encrypt --recipient 573E1A32AF37CBFA47B03919B84A19B106C03AD7 doc_no_cifrado.txt #usamos el hash de la clave publica que importamos de nuestro compañero para cifrar el documento
-gpg --decrypt MICOMPA_doc_cifrado.txt #lo traducimos a nuestro idioma el mensaje que nos mando nuesteo companero
+gpg --decrypt MICOMPA_doc_cifrado.txt #lo traducimos a nuestro idioma el mensaje que nos mando nuestro companero
 gpg --output doc_no_cifrado_firmado.txt --clearsign doc_no_cifrado.txt #Con este comando firmamos en texto limpio nuestro documento
+cat doc_no_cifrado_firmado.txt #displays the full contents of the file doc_no_cifrado_firmado.txt in the terminal.
+gpg --verify MICOMPA_doc_no_cifrado_firmado.txt #checks whether the digital signature of the file MICOMPA_doc_no_cifrado_firmado.txt is valid and whether it was really made with the signer’s key.
+gpg --edit-key 573E1A32AF37CBFA47B03919B84A19B106C03AD7 #opens the GPG key management menu for the key with that ID, allowing you to inspect, trust, modify, or manage that key.
