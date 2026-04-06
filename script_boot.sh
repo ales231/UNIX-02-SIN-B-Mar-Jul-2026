@@ -12,3 +12,5 @@ cd $HOME
 total 12
 925545 drwxr-xr-x 2 codespace codespace 4096 Apr  6 12:33 .
 918515 drwxr-x--- 1 codespace codespace 4096 Apr  6 12:33 ..
+#stat . is used to display detailed information about the current directory, such as its size, permissions, owner, inode, and access or modification dates.
+stat .
