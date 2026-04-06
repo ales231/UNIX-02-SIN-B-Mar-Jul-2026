@@ -14,3 +14,9 @@ total 12
 918515 drwxr-x--- 1 codespace codespace 4096 Apr  6 12:33 ..
 #stat . is used to display detailed information about the current directory, such as its size, permissions, owner, inode, and access or modification dates.
 stat .
+#Creates the full directory path at once, including any parent folders that do not already exist.
+mkdir -p /tmp/prueba/sub1/tmp/prueba/sub2
+#Shows detailed information about the /tmp/prueba directory, such as permissions, owner, size, inode, and timestamps
+stat /tmp/prueba
+#manual
+man mkdir
