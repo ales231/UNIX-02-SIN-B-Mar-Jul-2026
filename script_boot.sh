@@ -20,3 +20,23 @@ mkdir -p /tmp/prueba/sub1/tmp/prueba/sub2
 stat /tmp/prueba
 #manual
 man mkdir
+#Shows the full path of the current working directory.
+pwd
+#Displays the name of the current logged-in user.
+whoami
+#Lists the files and folders in the current directory.
+ls 
+#Lists files and folders in long format, showing details like permissions, owner, size, and date.
+ls -l
+#Lists all files and folders in long format, including hidden files.
+ls -la
+#Lists files and folders in long format, but shows sizes in a human-readable way like KB or MB.
+ls -lh
+#Lists the contents of the root directory.
+ls /
+#Shows the first 20 entries inside the /etc directory.
+ls /etc |head -20
+#Shows the first 20 entries inside the /dev directory.
+ls /dev |head -20
+#Lists all files and folders in the current directory in long format, including hidden files.
+ls -la
