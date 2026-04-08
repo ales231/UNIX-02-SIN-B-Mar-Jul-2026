@@ -40,3 +40,11 @@ ls /etc |head -20
 ls /dev |head -20
 #Lists all files and folders in the current directory in long format, including hidden files.
 ls -la
+#
+git clone --depth 1 https://github.com/torvalds/linux 
+#
+cd linux
+#
+make menuconfig
+#
+make -j2
