@@ -9,3 +9,6 @@ rm -- -rf #Removes a file literally named -rf by treating it as a filename, not 
 rmdir -- -rf #Removes an empty directory literally named -rf by treating it as a name, not as flags.
 ls --help  #Give me an explanation of the ls 
 man ls #This a manual for ls
+--depth # Create a shallow clone with a history truncated to the specified number of commits. Implies --single-branch unless
+           #--no-single-branch is given to fetch the histories near the tips of all branches. If you want to clone submodules shallowly,
+           #also pass --shallow-submodules.
