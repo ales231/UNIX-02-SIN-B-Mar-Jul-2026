@@ -12,3 +12,8 @@ man ls #This a manual for ls
 --depth # Create a shallow clone with a history truncated to the specified number of commits. Implies --single-branch unless
            #--no-single-branch is given to fetch the histories near the tips of all branches. If you want to clone submodules shallowly,
            #also pass --shallow-submodules.
+
+chmod u+rw,go-rwx script.sh #Gives the owner read and write permissions, and removes all permissions from group and others on script.sh.
+chmod +x script.sh #Adds execute permission to script.sh for everyone who already has access to the file.
+ chmod u+x script.sh #Adds execute permission only for the file owner on script.sh.
+ chmod o-r script.sh #Removes read permission from others on script.sh.
