@@ -20,3 +20,5 @@ chmod +x script.sh #Adds execute permission to script.sh for everyone who alread
  sudo echo "hola" > /etc/archivo_protegido #It's not worth it because sweat doesn't lift the "etc".
  echo "hola" | sudo tee /etc/archivo_protegido 
  echo "hola" | sudo tee /etc/archivo_protegido > /dev/null #echo "hola" | sudo tee /etc/archivo_protegido writes "hola" into the protected file as administrator and also prints it to the terminal, while echo "hola" | sudo tee /etc/archivo_protegido > /dev/null writes it to the file but hides the terminal output.
+ sudo sh -c 'echo "chao" >> /etc/archivo_protegido' #runs a root shell that appends the text "chao" to the protected file /etc/archivo_protegido.
+ 
