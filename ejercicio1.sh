@@ -7,6 +7,7 @@ chmod +x hola.sh
 ls -l hola.sh
 ./hola.sh #This block first shows the file permissions of hola.sh, then gives it execute permission, shows the updated permissions, and finally runs the script.
 ls /etc
-touch /etc/prueba.txt #there or updates its timestamp if it already exists.
+touch /etc/prueba.txt 
 mkdir ~/mi_carpeta
-apt install cowsay #This block lists the contents of /etc, creates an empty file named prueba.txt there or updates its timestamp if it already exists, creates a folder called mi_carpeta in the user’s home directory, and installs the cowsay package.
+sudo apt update
+sudo apt install cowsay #This block lists the contents of /etc, tries to create the file prueba.txt in that protected directory, creates mi_carpeta in the user’s home folder, updates the package list, and finally installs the cowsay package with administrator privileges.
