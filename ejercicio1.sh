@@ -6,3 +6,5 @@ ls -l hola.sh
 chmod +x hola.sh
 ls -l hola.sh
 ./hola.sh #This block first shows the file permissions of hola.sh, then gives it execute permission, shows the updated permissions, and finally runs the script.
+ls /etc
+touch /etc/prueba.txt #there or updates its timestamp if it already exists.
