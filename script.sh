@@ -18,4 +18,5 @@ chmod +x script.sh #Adds execute permission to script.sh for everyone who alread
  chmod u+x script.sh #Adds execute permission only for the file owner on script.sh.
  chmod o-r script.sh #Removes read permission from others on script.sh.
  sudo echo "hola" > /etc/archivo_protegido #It's not worth it because sweat doesn't lift the "etc".
- 
+ echo "hola" | sudo tee /etc/archivo_protegido 
+ echo "hola" | sudo tee /etc/archivo_protegido > /dev/null #echo "hola" | sudo tee /etc/archivo_protegido writes "hola" into the protected file as administrator and also prints it to the terminal, while echo "hola" | sudo tee /etc/archivo_protegido > /dev/null writes it to the file but hides the terminal output.
