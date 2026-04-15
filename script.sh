@@ -22,4 +22,5 @@ chmod +x script.sh #Adds execute permission to script.sh for everyone who alread
  echo "hola" | sudo tee /etc/archivo_protegido > /dev/null #echo "hola" | sudo tee /etc/archivo_protegido writes "hola" into the protected file as administrator and also prints it to the terminal, while echo "hola" | sudo tee /etc/archivo_protegido > /dev/null writes it to the file but hides the terminal output.
  sudo sh -c 'echo "chao" >> /etc/archivo_protegido' #runs a root shell that appends the text "chao" to the protected file /etc/archivo_protegido.
  sudo su - #sudo su - switches to a full root login shell, giving you administrator access with root’s environment and home directory.
- 
+ echo "$HOME"
+ echo '$HOME'#echo "$HOME" prints the value of the HOME variable, while echo '$HOME' prints the literal text $HOME without expanding it.
