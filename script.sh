@@ -17,3 +17,5 @@ chmod u+rw,go-rwx script.sh #Gives the owner read and write permissions, and rem
 chmod +x script.sh #Adds execute permission to script.sh for everyone who already has access to the file.
  chmod u+x script.sh #Adds execute permission only for the file owner on script.sh.
  chmod o-r script.sh #Removes read permission from others on script.sh.
+ sudo echo "hola" > /etc/archivo_protegido #It's not worth it because sweat doesn't lift the "etc".
+ 
