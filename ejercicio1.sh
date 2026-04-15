@@ -1,0 +1,1 @@
+echo '#!/bin/sh' > hola.sh #Create a file called hello.sh and print the message in quotation marks
