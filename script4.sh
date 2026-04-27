@@ -10,3 +10,7 @@ sudo apt-get update #Updates the local package list from the repositories. It do
 sudo apt-get install acl #This package provides commands like setfacl and getfacl, which are used to manage Access Control Lists in Linux.
 sudo chown R$(whoami) . #Changes the owner of the current directory and everything inside it to your current user.
 sudo setfacl -bnR #Removes extra ACL permissions from the current directory and everything inside it.
+umask 077 #Sets a very restrictive default permission mask for new files and directories.
+touch secreto.txt #Creates an empty file called secreto.txt.
+mkdir privado #Creates a new directory called privado.
+ls -l #Shows the files and directories in long format, including permissions, owner, group, size, and date.
