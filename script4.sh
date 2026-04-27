@@ -16,3 +16,4 @@ mkdir privado #Creates a new directory called privado.
 ls -l #Shows the files and directories in long format, including permissions, owner, group, size, and date.
 sudo useradd -m -s /usr/bin/zsh luna #Creates a new user called luna.
 sudo chown luna mi_archivo #Changes the owner of mi_archivo to the user luna.
+sudo chown -R luna:grupo_test proyecto #Changes the owner and group of the folder proyecto and everything inside it.
