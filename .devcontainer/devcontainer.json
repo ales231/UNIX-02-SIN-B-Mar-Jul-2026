@@ -1,7 +1,4 @@
 // ============================================================================
-//  devcontainer.json — configuración del entorno de desarrollo
-// ============================================================================
-//  Este archivo le dice a GitHub Codespaces (y a VS Code con la
 //  extensión "Dev Containers") CÓMO preparar el contenedor: qué imagen
 //  usar, qué extensiones instalar en el editor, qué permisos darle al
 //  contenedor, cuánta RAM necesita, etc.
