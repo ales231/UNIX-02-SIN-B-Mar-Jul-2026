@@ -67,3 +67,6 @@ id $USER # has temporary_group
 sudo usermod -G desarrolladores SUSER
 # This REMOVES all secondary groups except desarrolladores
 id $USER # lost all the other groups
+#restore
+sudo usermod -aG diseno, marketing, grupo_temporal root
+id root #restore
