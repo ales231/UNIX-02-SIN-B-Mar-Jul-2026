@@ -44,5 +44,5 @@ grep "design\|marketing\|web_cache" /etc/group
 groups
 id
 # Add a user to a group with usermod (low-level command)
-sudo usermod -aG developers $USER
-sudo usermod -aG design $USER
+sudo usermod -aG developers $USER #(use(whoami))
+sudo usermod -aG design $USER #(use(whoami))
