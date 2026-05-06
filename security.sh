@@ -9,3 +9,11 @@ cat /etc/group # Displays the system group file, showing all groups and the user
 cat /etc/gshadow # Displays the secure group file, which contains protected group password and administrator information; it usually requires root permissions.
 mkdir ~/proyecto_unix/ # Creates a new directory called proyecto_unix inside the current user's home directory.
 ls -la ~/proyecto_unix/ # Lists all files inside proyecto_unix, including hidden files, with detailed information such as permissions, owner, group, size, and date.
+
+
+# groupadd [options] group_name
+# create a simple group
+sudo groupadd developers
+sudo groupadd -g 2000 operations # specific GID
+# system group (GID < 1000)
+sudo groupadd --system web_services
