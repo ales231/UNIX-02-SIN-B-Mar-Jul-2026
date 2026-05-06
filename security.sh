@@ -40,3 +40,9 @@ sudo addgroup --gid 2100 marketing
 sudo addgroup --system web_cache
 # Verify
 grep "design\|marketing\|web_cache" /etc/group
+# See which groups the current user belongs to
+groups
+id
+# Add a user to a group with usermod (low-level command)
+sudo usermod -aG developers $USER
+sudo usermod -aG design $USER
