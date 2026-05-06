@@ -94,3 +94,11 @@ sudo charp diseño \
 
 ls -la~/lab_chgrp/proyectos/
 ls -la ~/lab_chgrp/reportes/
+
+# Recursively change an entire directory
+sudo chgrp -R desarrolladores ~/lab_chgrp/scripts/
+
+Is -laR~/lab_chgrp/scripts/
+
+# Verbose to see what changes
+sudo chgrp -Rv diseño ~/lab_chgrp/reportes/
