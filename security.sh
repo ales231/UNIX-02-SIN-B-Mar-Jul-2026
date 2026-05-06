@@ -58,3 +58,12 @@ sudo adduser $USER marketing
 # View the current status
 id root
 grep root /etc/group
+
+# Create a temporary group for the demo
+sudo groupadd temporary_group
+sudo usermod -aG temporary_group SUSER
+id $USER # has temporary_group
+# Now the ERROR: usermod without -a
+sudo usermod -G desarrolladores SUSER
+# This REMOVES all secondary groups except desarrolladores
+id $USER # lost all the other groups
