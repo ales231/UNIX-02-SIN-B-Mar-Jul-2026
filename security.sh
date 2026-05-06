@@ -46,3 +46,15 @@ id
 # Add a user to a group with usermod (low-level command)
 sudo usermod -aG developers $USER #(use(whoami))
 sudo usermod -aG design $USER #(use(whoami))
+
+# CRITICAL: the -a flag (append) is essential
+# Without -a, usermod REPLACES all the user's groups
+# With -a, it ADDS the user to the group while keeping the existing groups
+# Verify the change in /etc/group
+grep -E "desarrolladores|diseño" /etc/group
+
+# Add user to group with adduser (high-level,Debian)
+sudo adduser $USER marketing
+# View the current status
+id SUSER
+grep SUSER /etc/group
