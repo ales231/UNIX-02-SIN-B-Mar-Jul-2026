@@ -81,3 +81,16 @@ touch~/lab_chgrp/scripts/deploy.sh
 #View the initial state; everyone has the user group
 ls -la ~/lab_chgrp/proyectos/
 ls -la ~/lab_chgrp/reportes/
+
+#change the group of a file
+sudo chgrp desarrolladores
+~/lab_chgrp/proyectos/app.py 
+ls -la ~/lab_chgrp/proyectos/
+
+# Change the group of multiple files
+sudo charp diseño \
+~/lab_chgrp/proyectos/config.json \
+~/lab_chgrp/reportes/informe.txt
+
+ls -la~/lab_chgrp/proyectos/
+ls -la ~/lab_chgrp/reportes/
