@@ -17,3 +17,9 @@ sudo groupadd developers
 sudo groupadd -g 2000 operations # specific GID
 # system group (GID < 1000)
 sudo groupadd --system web_services
+
+# Verify that they were created
+grep "developers\|operations\|web_services" /etc/group
+grep -E "developers|operations|web_services" /etc/group
+# View main options
+groupadd --help
