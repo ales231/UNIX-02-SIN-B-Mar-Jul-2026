@@ -56,5 +56,5 @@ grep -E "desarrolladores|diseño" /etc/group
 # Add user to group with adduser (high-level,Debian)
 sudo adduser $USER marketing
 # View the current status
-id SUSER
-grep SUSER /etc/group
+id root
+grep root /etc/group
