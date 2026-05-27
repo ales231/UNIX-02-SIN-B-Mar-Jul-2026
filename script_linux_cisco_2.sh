@@ -39,3 +39,31 @@ dd if=/tmp/mbr_backup.img of=/dev/sda bs=512 count=1
 # EXAMPLE 5 – Wipe a disk by overwriting it with zeros
 # -----------------------------------------------------------------------------
 dd if=/dev/zero of=/dev/sdb bs=1M
+
+# =============================================================================
+# mv Command - Reference & Examples
+# =============================================================================
+# DESCRIPTION:
+#   mv moves a file from one location in the filesystem to another.
+#   Syntax: mv SOURCE DESTINATION
+#
+# NOTES:
+#   - Requires at least two arguments: source and destination
+#   - Moving within the same directory effectively renames the file
+#   - Requires write + execute permissions on both source and destination dirs
+# =============================================================================
+# -----------------------------------------------------------------------------
+# EXAMPLE 1 – Move a single file to a directory
+# -----------------------------------------------------------------------------
+# people.csv keeps its original name inside Work/
+mv people.csv Work
+# -----------------------------------------------------------------------------
+# EXAMPLE 2 – Move multiple files to a directory
+# -----------------------------------------------------------------------------
+# The destination must always be the last argument
+mv numbers.txt letters.txt alpha.txt School
+# -----------------------------------------------------------------------------
+# EXAMPLE 3 – Rename a file (move within the same directory)
+# -----------------------------------------------------------------------------
+mv animals.txt zoo.txt
+ 
