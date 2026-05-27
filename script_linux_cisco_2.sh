@@ -307,3 +307,39 @@ ping -c 4 yahoo.com
 # COMMON OPTIONS:
 #   -c N   Limit to N packets (instead of running indefinitely)
  
+# =============================================================================
+# ps Command - Process Viewing Reference
+# =============================================================================
+# DESCRIPTION:
+#   ps lists running processes. Process privileges depend on the user who
+#   launched them. Regular users can only control their own processes;
+#   root can control any process on the system.
+#   Syntax: ps [OPTIONS]
+#
+# OUTPUT COLUMNS:
+#   PID    Process ID – unique identifier for each process
+#   TTY    Terminal the process is running on
+#   TIME   Total CPU time consumed by the process
+#   CMD    Command that started the process
+#
+# EXTRA COLUMNS (with -f):
+#   UID    User who owns the process
+#   PPID   Parent Process ID (the process that launched this one)
+#   STIME  Start time of the process
+# =============================================================================
+# -----------------------------------------------------------------------------
+# EXAMPLE 1 – Show processes running in the current terminal only
+# -----------------------------------------------------------------------------
+ps
+# -----------------------------------------------------------------------------
+# EXAMPLE 2 – Show ALL processes running on the system
+# -----------------------------------------------------------------------------
+ps -e
+# -----------------------------------------------------------------------------
+# EXAMPLE 3 – Show all processes with full/detailed output
+# -----------------------------------------------------------------------------
+ps -ef                               # Includes UID, PPID, STIME and full CMD with arguments
+# COMMON OPTIONS:
+#   -e   Show every process on the system
+#   -f   Full format listing (more detail per process)
+ 
