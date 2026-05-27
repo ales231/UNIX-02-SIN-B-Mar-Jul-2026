@@ -30,3 +30,6 @@ exit
 # Verify that we returned to the original group
 id -gn
 echo "Group restored: $ (id -gn)"
+# Compare the two files
+Is -la ~/before_newgrp.txt
+~/inside_newgrp.txt
