@@ -385,3 +385,36 @@ sudo apt-get purge cowsay            # Remove package AND all config files
 #   apt-get remove [package]         Uninstall (keeps config files)
 #   apt-get purge [package]          Uninstall + delete config files
  
+# =============================================================================
+# passwd Command - Password Management Reference
+# =============================================================================
+# DESCRIPTION:
+#   passwd updates a user's password.
+#   - Regular users can only change their own password
+#   - root can change any user's password
+#   Syntax: passwd [OPTIONS] [USER]
+# =============================================================================
+# -----------------------------------------------------------------------------
+# EXAMPLE 1 – Change your own password (prompts for current + new password)
+# -----------------------------------------------------------------------------
+passwd
+# -----------------------------------------------------------------------------
+# EXAMPLE 2 – View password status information for a user
+# -----------------------------------------------------------------------------
+passwd -S sysadmin
+# OUTPUT FIELDS (passwd -S):
+#   Field           Example     Meaning
+#   Username        sysadmin    The user's login name
+#   Password status P           P=usable, L=locked, NP=no password
+#   Last changed    12/20/2017  Date the password was last updated
+#   Minimum         0           Min days before user can change the password again
+#   Maximum         99999       Max days before the password expires
+#   Warning         7           Days before expiry that the user gets a warning
+#   Inactivity      -1          Days after expiry before the account is disabled (-1 = never)
+# -----------------------------------------------------------------------------
+# EXAMPLE 3 – root changes another user's password (no current password needed)
+# -----------------------------------------------------------------------------
+# passwd sysadmin
+# NOTE: Passwords are never displayed while typing (security measure).
+#       Switch to root with: su root | exit to return to regular user.
+ 
