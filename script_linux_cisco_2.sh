@@ -224,4 +224,38 @@ grep 'ee*' red.txt                   # Lines with at least one "e" (one "e" + ze
 # -----------------------------------------------------------------------------
 # grep 'pattern'
 # (type input manually, then press Ctrl+D to exit)
+
+# =============================================================================
+# shutdown Command - Reference & Examples
+# =============================================================================
+# DESCRIPTION:
+#   shutdown safely powers off the system. Logged-in users are notified
+#   and new logins are blocked during the last 5 minutes before shutdown.
+#   Syntax: shutdown [OPTIONS] TIME [MESSAGE]
+#
+# NOTES:
+#   - Requires root/administrative access (su -)
+#   - TIME argument is mandatory
+# =============================================================================
+# TIME FORMATS:
+#   now       Immediately
+#   hh:mm     Specific time of day (24h format, UTC by default)
+#   +minutes  Delay in minutes from now
+# -----------------------------------------------------------------------------
+# EXAMPLE 1 – Shut down immediately
+# -----------------------------------------------------------------------------
+shutdown now
+# -----------------------------------------------------------------------------
+# EXAMPLE 2 – Shut down at a specific time
+# -----------------------------------------------------------------------------
+shutdown 01:51                       # Powers off at 01:51 UTC
+# -----------------------------------------------------------------------------
+# EXAMPLE 3 – Shut down in N minutes with a broadcast message
+# -----------------------------------------------------------------------------
+shutdown +1 "Goodbye World!"         # 1-minute warning + custom message to all users
+# -----------------------------------------------------------------------------
+# TIP – Check current system time before scheduling a shutdown
+# -----------------------------------------------------------------------------
+# date
+# Output format: weekday month day hour:minute:second UTC year
  
