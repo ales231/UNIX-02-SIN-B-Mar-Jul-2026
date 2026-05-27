@@ -17,3 +17,16 @@ newgrp desarrolladores
 # Verify that the active group has changed
 id -gn
 echo "New active group: $(id-gn)"
+# Create a file inside the subshell
+touch ~/inside_newgrp.txt
+Is -la ~/inside_newgrp.txt
+# The group is now developers
+# Create a directory
+mkdir -p ~/dev_project/src
+Is -la -/
+# project_dev/ has group 'developers'
+# Exit the newgrp subshell
+exit
+# Verify that we returned to the original group
+id -gn
+echo "Group restored: $ (id -gn)"
