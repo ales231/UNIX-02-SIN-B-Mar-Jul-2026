@@ -139,3 +139,48 @@ grep -r "sysadmin" ~/Documents
 #   -l   Print only the names of files with matches
 # -----------------------------------------------------------------------------
  
+# =============================================================================
+# Regular Expressions (Regex) - Reference & Examples
+# =============================================================================
+# DESCRIPTION:
+#   Regular expressions are patterns used to match text.
+#   Two forms exist: Basic (BRE) and Extended (ERE).
+#   - Basic regex: supported by most commands (e.g. grep)
+#   - Extended regex: requires egrep or grep -E
+# =============================================================================
+# -----------------------------------------------------------------------------
+# BASIC REGEX CHARACTERS
+# -----------------------------------------------------------------------------
+#   .     Any single character
+#   [ ]   Any one of the specified characters          e.g. [aeiou]
+#   [^]   Any character NOT in the specified set       e.g. [^0-9]
+#   *     Zero or more of the previous character
+#   ^     Pattern must be at the START of the line     e.g. ^root
+#   $     Pattern must be at the END of the line       e.g. bash$
+# EXAMPLE – Lines starting with "root"
+grep "^root" passwd
+# EXAMPLE – Lines ending with "bash"
+grep "bash$" passwd
+# EXAMPLE – Any 3-character sequence
+grep "..." passwd
+# EXAMPLE – Lines containing a vowel
+grep "[aeiou]" passwd
+# EXAMPLE – Lines NOT containing a digit
+grep "[^0-9]" passwd
+# -----------------------------------------------------------------------------
+# EXTENDED REGEX CHARACTERS (use egrep or grep -E)
+# -----------------------------------------------------------------------------
+#   +     One or more of the previous pattern
+#   ?     The previous pattern is optional (zero or one)
+#   { }   Exact, minimum, or range of matches          e.g. {2,4}
+#   |     Logical OR (alternation)                     e.g. cat|dog
+#   ( )   Grouping                                     e.g. (ab)+
+# EXAMPLE – Lines containing "root" OR "sysadmin"
+grep -E "root|sysadmin" passwd
+# EXAMPLE – Lines with one or more digits
+grep -E "[0-9]+" passwd
+# EXAMPLE – Lines where "sys" appears exactly twice
+grep -E "(sys){2}" passwd
+# EXAMPLE – Lines with an optional "s" before "bin"
+grep -E "s?bin" passwd
+ 
