@@ -259,3 +259,51 @@ shutdown +1 "Goodbye World!"         # 1-minute warning + custom message to all 
 # date
 # Output format: weekday month day hour:minute:second UTC year
  
+# =============================================================================
+# Network Configuration - ifconfig & ping Reference
+# =============================================================================
+# =============================================================================
+# ifconfig – Display or configure network interfaces
+# =============================================================================
+# DESCRIPTION:
+#   ifconfig (interface configuration) shows and temporarily modifies
+#   network settings. For wireless interfaces, use iwconfig instead.
+#   Syntax: ifconfig [OPTIONS]
+# KEY OUTPUT FIELDS:
+#   eth0          Primary network interface
+#   inet addr     IPv4 address of the interface
+#   UP            Interface is active
+#   lo            Loopback device (used for internal system communication, 127.0.0.1)
+# =============================================================================
+# -----------------------------------------------------------------------------
+# EXAMPLE – Show all network interfaces
+# -----------------------------------------------------------------------------
+ifconfig
+# =============================================================================
+# ping – Test connectivity between two hosts
+# =============================================================================
+# DESCRIPTION:
+#   ping sends packets to another machine and waits for a reply.
+#   It uses IP addresses (or hostnames/domains) to identify the target.
+#   By default it runs until stopped with Ctrl+C.
+#   Syntax: ping [OPTIONS] TARGET
+# =============================================================================
+# -----------------------------------------------------------------------------
+# EXAMPLE 1 – Ping a host with a limited number of packets
+# -----------------------------------------------------------------------------
+ping -c 4 192.168.1.2              # Send exactly 4 packets to the target IP
+# -----------------------------------------------------------------------------
+# EXAMPLE 2 – Ping using a hostname or domain (also validates DNS resolution)
+# -----------------------------------------------------------------------------
+ping -c 4 yahoo.com
+# -----------------------------------------------------------------------------
+# POSSIBLE OUTCOMES:
+#   Success → replies received, 0% packet loss
+#   Failure → "Destination Host Unreachable" (host down or blocked)
+#
+# NOTE: Some hosts/networks block ping requests by design (firewall/security).
+#       A failed ping does not always mean the machine is offline.
+# -----------------------------------------------------------------------------
+# COMMON OPTIONS:
+#   -c N   Limit to N packets (instead of running indefinitely)
+ 
