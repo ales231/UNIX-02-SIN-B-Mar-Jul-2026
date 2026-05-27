@@ -100,3 +100,42 @@ rm -r Work
 #   -i        Interactive – prompt before every deletion (safer)
 # -----------------------------------------------------------------------------
  
+# =============================================================================
+# grep Command - Reference & Examples
+# =============================================================================
+# DESCRIPTION:
+#   grep filters text by searching lines in input and returning those
+#   that match a given pattern.
+#   Syntax: grep [OPTIONS] PATTERN [FILE]
+# =============================================================================
+# -----------------------------------------------------------------------------
+# EXAMPLE 1 – Search for a specific user in the passwd file
+# -----------------------------------------------------------------------------
+# Returns every line in passwd that contains the word "sysadmin"
+grep sysadmin passwd
+# -----------------------------------------------------------------------------
+# EXAMPLE 2 – Case-insensitive search
+# -----------------------------------------------------------------------------
+grep -i "root" passwd
+# -----------------------------------------------------------------------------
+# EXAMPLE 3 – Show line numbers of matches
+# -----------------------------------------------------------------------------
+grep -n "bash" passwd
+# -----------------------------------------------------------------------------
+# EXAMPLE 4 – Return lines that do NOT match the pattern
+# -----------------------------------------------------------------------------
+grep -v "nologin" passwd
+# -----------------------------------------------------------------------------
+# EXAMPLE 5 – Search recursively inside a directory
+# -----------------------------------------------------------------------------
+grep -r "sysadmin" ~/Documents
+# -----------------------------------------------------------------------------
+# COMMON OPTIONS:
+#   -i   Case-insensitive matching
+#   -n   Show line numbers
+#   -v   Invert match (return non-matching lines)
+#   -r   Recursive search through directories
+#   -c   Count the number of matching lines
+#   -l   Print only the names of files with matches
+# -----------------------------------------------------------------------------
+ 
