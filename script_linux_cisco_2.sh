@@ -343,3 +343,45 @@ ps -ef                               # Includes UID, PPID, STIME and full CMD wi
 #   -e   Show every process on the system
 #   -f   Full format listing (more detail per process)
  
+# =============================================================================
+# Package Management - apt-get Reference (Debian/Ubuntu)
+# =============================================================================
+# DESCRIPTION:
+#   Package management allows software to be installed, updated, searched,
+#   and removed. On Debian-based systems (Ubuntu), the main tools are:
+#     dpkg     – low-level package tool
+#     apt-get  – user-friendly front-end for dpkg (recommended)
+#
+# NOTES:
+#   - Most commands require admin privileges (prefix with sudo)
+#   - Packages are downloaded from online repositories (65,000+ available)
+# =============================================================================
+# -----------------------------------------------------------------------------
+# SEARCH – Find packages by keyword
+# -----------------------------------------------------------------------------
+apt-cache search cow                 # Search for packages matching "cow"
+# Tip: use multiple keywords for better results (e.g. "web server")
+# -----------------------------------------------------------------------------
+# INSTALL – Update package list first, then install
+# -----------------------------------------------------------------------------
+sudo apt-get update                  # Refresh the list of available packages
+sudo apt-get install cowsay          # Download and install the package
+# -----------------------------------------------------------------------------
+# UPDATE ALL – Upgrade every installed package and its dependencies
+# -----------------------------------------------------------------------------
+sudo apt-get update                  # Step 1: refresh package cache
+sudo apt-get upgrade                 # Step 2: upgrade all installed packages
+# NOTE: apt-get install also upgrades a package if a newer version exists
+# -----------------------------------------------------------------------------
+# REMOVE – Uninstall a package
+# -----------------------------------------------------------------------------
+sudo apt-get remove cowsay           # Remove package but keep config files
+sudo apt-get purge cowsay            # Remove package AND all config files
+# SUMMARY:
+#   apt-cache search [keyword]       Search available packages
+#   apt-get update                   Refresh package list
+#   apt-get install [package]        Install or upgrade a package
+#   apt-get upgrade                  Upgrade all installed packages
+#   apt-get remove [package]         Uninstall (keeps config files)
+#   apt-get purge [package]          Uninstall + delete config files
+ 
