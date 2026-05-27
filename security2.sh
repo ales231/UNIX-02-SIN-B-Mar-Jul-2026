@@ -38,3 +38,10 @@ echo "PID of current shell: $$"
 newgrp developers
 echo "PID inside newgrp: $$"
 # The PID is different - it's a child process
+# Create a password-protected group: `sudo groupadd restricted_group`
+`sudo gpasswd restricted_group`
+`# The system will prompt for a password for the group`
+# A user who does NOT belong to the group can
+join temporarily if they know the password: newgre group _restricted
+# The system will ask for the group password. # If the password is correct, they join temporarily: id - gn
+exit # Upon exiting, they lose their temporary membership.
