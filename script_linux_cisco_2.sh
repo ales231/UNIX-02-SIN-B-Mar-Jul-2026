@@ -67,3 +67,36 @@ mv numbers.txt letters.txt alpha.txt School
 # -----------------------------------------------------------------------------
 mv animals.txt zoo.txt
  
+ # =============================================================================
+# rm Command - Reference & Examples
+# =============================================================================
+# DESCRIPTION:
+#   rm (remove) deletes files and directories permanently.
+#   Unlike desktop OS trash bins, deleted files are NOT recoverable.
+#   Syntax: rm [OPTIONS] FILE
+#
+# NOTES:
+#   - Requires write + execute permissions on the parent directory
+#   - Regular users can typically only delete files in their home dir
+#   - Directories are ignored unless a recursive option is specified
+# ============================================================================= 
+# -----------------------------------------------------------------------------
+# EXAMPLE 1 – Delete a single file
+# -----------------------------------------------------------------------------
+rm linux.txt 
+# -----------------------------------------------------------------------------
+# EXAMPLE 2 – Attempt to delete a directory (fails without options)
+# -----------------------------------------------------------------------------
+# rm Work         # ERROR: rm: cannot remove 'Work': Is a directory 
+# -----------------------------------------------------------------------------
+# EXAMPLE 3 – Delete a directory and all its contents recursively
+# -----------------------------------------------------------------------------
+# WARNING: permanently removes the directory and ALL files/subdirectories inside
+rm -r Work
+# -----------------------------------------------------------------------------
+# COMMON OPTIONS:
+#   -r / -R   Recursive – required to remove directories
+#   -f        Force     – suppress confirmation prompts and ignore missing files
+#   -i        Interactive – prompt before every deletion (safer)
+# -----------------------------------------------------------------------------
+ 
