@@ -184,3 +184,44 @@ grep -E "(sys){2}" passwd
 # EXAMPLE – Lines with an optional "s" before "bin"
 grep -E "s?bin" passwd
  
+# =============================================================================
+# Basic Regex Patterns with grep - Reference & Examples
+# =============================================================================
+# DESCRIPTION:
+#   Regular expressions are patterns interpreted by commands like grep.
+#   All patterns should be wrapped in single quotes to avoid shell misinterpretation.
+#   Syntax: grep 'PATTERN' FILE
+# =============================================================================
+# -----------------------------------------------------------------------------
+# ANCHOR CHARACTERS
+# -----------------------------------------------------------------------------
+# ^  Pattern must appear at the START of the line
+# $  Pattern must appear at the END of the line
+grep '^root' passwd                  # Lines that start with "root"
+grep 'r$' alpha-first.txt           # Lines that end with "r"
+# -----------------------------------------------------------------------------
+# DOT (.) – Matches any single character except newline
+# -----------------------------------------------------------------------------
+grep 'r..f' red.txt                  # "r" + any 2 chars + "f"  → reef, roof
+grep 'r..d' red.txt                  # "r" + any 2 chars + "d"  → reed, read
+grep '....' red.txt                  # Any line with at least 4 characters
+# -----------------------------------------------------------------------------
+# BRACKETS [ ] – Match a single character from a set or range
+# -----------------------------------------------------------------------------
+grep '[0-9]' profile.txt             # Lines containing at least one digit
+grep '[^0-9]' profile.txt            # Lines containing at least one non-digit
+grep '[.]' profile.txt               # Lines containing a literal dot (.)
+# NOTE: Special regex chars inside [ ] are treated as literals
+# -----------------------------------------------------------------------------
+# ASTERISK (*) – Zero or more of the preceding character/pattern
+# -----------------------------------------------------------------------------
+grep 're*d' red.txt                  # "r" + zero or more "e" + "d"  → rd, red, reed, reeed
+grep 'r[oe]*d' red.txt              # "r" + zero or more "o" or "e" + "d"
+# TIP: * alone is not useful — pair it with another char to be meaningful
+grep 'ee*' red.txt                   # Lines with at least one "e" (one "e" + zero or more "e")
+# -----------------------------------------------------------------------------
+# STDIN – grep without a filename reads from keyboard input
+# -----------------------------------------------------------------------------
+# grep 'pattern'
+# (type input manually, then press Ctrl+D to exit)
+ 
