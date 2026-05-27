@@ -33,3 +33,8 @@ echo "Group restored: $ (id -gn)"
 # Compare the two files
 Is -la ~/before_newgrp.txt
 ~/inside_newgrp.txt
+# newgrp creates a subshell - this is demonstrable
+echo "PID of current shell: $$"
+newgrp developers
+echo "PID inside newgrp: $$"
+# The PID is different - it's a child process
