@@ -417,4 +417,36 @@ passwd -S sysadmin
 # passwd sysadmin
 # NOTE: Passwords are never displayed while typing (security measure).
 #       Switch to root with: su root | exit to return to regular user.
- 
+
+# =============================================================================
+# I/O Redirection - Reference & Examples
+# =============================================================================
+# DESCRIPTION:
+#   I/O redirection sends command output to files instead of the terminal.
+#   Syntax: [COMMAND] > [FILE]   (overwrite)
+#           [COMMAND] >> [FILE]  (append)
+#
+# FILE DESCRIPTORS:
+#   STDIN  (0)  Standard Input  – what the user types / feeds to a command
+#   STDOUT (1)  Standard Output – normal command output displayed on screen
+#   STDERR (2)  Standard Error  – error messages from failed commands
+#
+# NOTE: Redirecting to a file requires write permission on that file.
+# =============================================================================
+# -----------------------------------------------------------------------------
+# EXAMPLE 1 – Redirect STDOUT to a new file (creates or overwrites)
+# -----------------------------------------------------------------------------
+cat food.txt > newfile1.txt          # Output of cat is saved to newfile1.txt instead of screen
+# -----------------------------------------------------------------------------
+# EXAMPLE 2 – Overwrite a file using echo
+# -----------------------------------------------------------------------------
+echo "I like food." > newfile1.txt   # WARNING: replaces all existing content
+# -----------------------------------------------------------------------------
+# EXAMPLE 3 – Append content to an existing file (does NOT overwrite)
+# -----------------------------------------------------------------------------
+echo "This food is good." >> newfile1.txt   # Adds a new line at the end
+# -----------------------------------------------------------------------------
+# SUMMARY:
+#   >    Redirect STDOUT – overwrites the file if it already exists
+#   >>   Redirect STDOUT – appends to the file, preserving existing content
+# -----------------------------------------------------------------------------
