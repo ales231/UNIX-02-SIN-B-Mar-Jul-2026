@@ -450,3 +450,72 @@ echo "This food is good." >> newfile1.txt   # Adds a new line at the end
 #   >    Redirect STDOUT – overwrites the file if it already exists
 #   >>   Redirect STDOUT – appends to the file, preserving existing content
 # -----------------------------------------------------------------------------
+
+# =============================================================================
+# vi Text Editor - Reference & Examples
+# =============================================================================
+# DESCRIPTION:
+#   vi (vim) is the universal Linux/UNIX text editor, available on every
+#   Linux distribution. Most systems use vim (vi improved), a superset of vi.
+#   Open or create a file: vi filename.txt
+# THREE MODES:
+#   Command Mode  – default on launch; navigate and perform actions (Esc to return)
+#   Insert Mode   – type and edit text
+#   Ex Mode       – file operations and settings (enter with :)
+# =============================================================================
+# =============================================================================
+# COMMAND MODE – MOVEMENT
+# =============================================================================
+# [count] motion  →  optional number prefix repeats the motion (e.g. 5h, 3w)
+#
+#   h   ←  one character left         l   →  one character right
+#   j   ↓  next line                  k   ↑  previous line
+#   w      one word forward           b      one word backward
+#   ^      beginning of line          $      end of line
+#   gg     first line                 G      last line
+#   5G     go to line 5               Ctrl+G show current line number
+# =========================================================================
+# COMMAND MODE – ACTIONS  (cut / copy / paste equivalent)
+# =============================================================================
+# Standard → vi equivalent:  cut=d (delete)  copy=y (yank)  paste=p/P (put)
+# Format: action [count] motion  OR  [count] action motion
+#
+# DELETE (cut to buffer):
+#   dd     delete current line        3dd    delete next 3 lines
+#   dw     delete current word        d3w    delete next 3 words
+#
+# CHANGE (delete + enter Insert Mode):
+#   cc     change current line        cw     change current word
+#   c3w    change next 3 words
+#
+# YANK (copy to buffer, no deletion):
+#   yy     yank current line          3yy    yank next 3 lines
+#   yw     yank current word          y$     yank to end of line
+#
+# PUT (paste from buffer):
+#   p      paste AFTER cursor         P      paste BEFORE cursor
+# =============================================================================
+# COMMAND MODE – SEARCH
+# =============================================================================
+#   /pattern   search forward   (n = next match, N = previous match)
+#   ?pattern   search backward
+# =============================================================================
+# INSERT MODE – Enter text  (press Esc to return to Command Mode)
+# =============================================================================
+#   a   insert after cursor           A   insert at end of line
+#   i   insert before cursor          I   insert at beginning of line
+#   o   new line below cursor         O   new line above cursor
+# =============================================================================
+# EX MODE – File operations  (enter with : from Command Mode)
+# =============================================================================
+#   :w              Save (write) the file
+#   :w filename     Save a copy under a new name
+#   :w!             Force save
+#   :q              Quit (only if no unsaved changes)
+#   :q!             Quit WITHOUT saving (discard changes)
+#   :wq  or  ZZ     Save and quit
+#   :e filename     Open another file
+#   :1  or  :N      Jump to line N
+#
+# TIP: ! forces the operation — e.g. :q fails with unsaved changes, :q! does not.
+ 
