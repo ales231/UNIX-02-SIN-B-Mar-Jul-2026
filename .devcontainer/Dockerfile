@@ -219,10 +219,9 @@ RUN git config --system --add safe.directory '*' \
 # definida para que la imagen sea usable también con Docker puro.
 # Prompt del curso para bash
 RUN cat > /root/.bashrc <<'EOF'
-PROMPT='%F{cyan}[Alex Alban]%f %F{yellow}%1~%f %(?.%F{green}✓.%F{red}✗ %?)%f %# '
-EOF
 
-CMD ["/bin/bash"]
+
+
 __set_prompt() {
     local ec=$?
     local mark
