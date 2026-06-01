@@ -1,6 +1,9 @@
-shebang #!/bin/bash
+#!/bin/bash
+set -x
+
+shebang 
 #!/bin/bash -x   IT shows every single comain in real time
-bash -r blackhatbash1.sh  #Limit dangerous commands within the script
+#bash -r blackhatbash1.sh  #Limit dangerous commands within the script
 bash version
 env
 echo ${SHELL}
@@ -10,3 +13,5 @@ echo ${OSTYPE}
 ps -e -f
 ps -ef
 df --human-readable
+#bash -n blackhatbash1.sh
+set +x
