@@ -2,3 +2,4 @@
 book="black hat bash"
 echo "This book's name is ${book}"
 
+echo "This book's nmae is $book" 
