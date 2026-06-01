@@ -1,3 +1,6 @@
+shebang #!/bin/bash
+#!/bin/bash -x   IT shows every single comain in real time
+bash -r blackhatbash1.sh  #Limit dangerous commands within the script
 bash version
 env
 echo ${SHELL}
