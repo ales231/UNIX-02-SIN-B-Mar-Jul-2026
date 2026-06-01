@@ -88,7 +88,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # === Editores de texto y shells (intérpretes de comandos) ===
     neovim \
     vim \
-    zsh \
+    bash \
     bash-completion \
     \
     # === Herramientas de 4ta generación ===
@@ -218,8 +218,8 @@ RUN git config --system --add safe.directory '*' \
 # propia terminal integrada de VS Code, pero es buena práctica dejarla
 # definida para que la imagen sea usable también con Docker puro.
 # Prompt del curso para bash
-RUN cat > /root/.zshrc <<'EOF'
+RUN cat > /root/.bashrc <<'EOF'
 PROMPT='%F{cyan}[Alex Alban]%f %F{yellow}%1~%f %(?.%F{green}✓.%F{red}✗ %?)%f %# '
 EOF
 
-CMD ["/bin/zsh"]
+CMD ["/bin/bash"]
