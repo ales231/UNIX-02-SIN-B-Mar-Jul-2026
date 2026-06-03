@@ -4,4 +4,5 @@ echo "Sleeping for 10 seconds..." ❶ sleep 10 &
 # Creates a file echo "Creating the file test123" 
 touch test123 
 # Deletes a file 
-echo "Deleting the file test123" rm test123
+echo "Deleting the file test123" 
+rm test123
