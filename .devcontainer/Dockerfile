@@ -28,3 +28,28 @@
 # ourselves (Kali as the lab distro — BHB Ch.3). The "rolling" tag means
 # continuous updates, so the base stays current.
 FROM kalilinux/kali-rolling:latest
+# ----------------------------------------------------------------------------
+# (c) ENV — persistent environment variables inside the container
+# ----------------------------------------------------------------------------
+# Environment variables are global key/value settings any process can read
+# from its environment; by convention they are UPPERCASE (environment
+# variables — BHB Ch.1).
+#
+#   DEBIAN_FRONTEND=noninteractive
+#     Tells apt not to open interactive dialogs and to take defaults. A
+#     build has no human at the keyboard, so a prompt would hang forever.
+#
+#   LANG / LC_ALL=es_ES.UTF-8
+#     Set the system language and, crucially, the UTF-8 character encoding
+#     so accents, ñ, €, etc. render correctly. LC_ALL overrides every other
+#     locale category at once.
+#
+#   TERM=xterm-256color
+#     Advertises a 256-color terminal so tools like vim/htop use full color.
+#
+# The trailing "\" continues one logical instruction across several lines;
+# it is purely for readability and groups these into a single ENV layer.
+ENV DEBIAN_FRONTEND=noninteractive \
+    LANG=es_ES.UTF-8 \
+    LC_ALL=es_ES.UTF-8 \
+    TERM=xterm-256color
