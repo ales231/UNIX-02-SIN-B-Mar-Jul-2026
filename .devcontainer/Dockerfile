@@ -53,3 +53,14 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
     TERM=xterm-256color
+# ----------------------------------------------------------------------------
+# (d) Pre-seed Wireshark's interactive install prompt
+# ----------------------------------------------------------------------------
+# Installing wireshark/tshark normally pops a question: should non-root
+# users be allowed to capture packets? We answer it in advance so the build
+# never stops for input. The "echo ... | debconf-set-selections" pattern
+# feeds the canned answer "false" — we run as root in the container, so
+# unprivileged capture is unneeded. Note the pipe "|": echo's stdout becomes
+# debconf's stdin (pipes and stdin/stdout — BHB Ch.1).
+RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
+    | debconf-set-selections
