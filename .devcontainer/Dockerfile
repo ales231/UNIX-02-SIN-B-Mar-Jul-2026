@@ -64,3 +64,106 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # debconf's stdin (pipes and stdin/stdout — BHB Ch.1).
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
+# ----------------------------------------------------------------------------
+# (e) RUN — install every course package in ONE layer
+# ----------------------------------------------------------------------------
+#   apt-get update   -> refresh the local index of available packages
+#   apt-get install  -> download and install the listed packages
+#     -y                       -> auto-answer "yes" to confirmations
+#     --no-install-recommends  -> install only hard dependencies, skipping
+#                                 "recommended" extras; saves hundreds of MB
+#
+# Why one giant RUN instead of many small ones? Each RUN is a separate
+# layer. Fewer layers means a smaller, faster image — and update+install
+# share one layer so we never cache a stale package index against a fresh
+# install (Docker image hygiene — BHB Ch.3).
+#
+# "&&" chains commands so the next runs ONLY if the previous succeeded
+# (logical AND / exit-status control flow — BHB Ch.1/Ch.2). The trailing
+# "\" continues the same shell command onto the next line. If any step
+# fails the whole RUN aborts, which is what we want: a clear error beats a
+# half-built image.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    \
+    # === Editors and shells (command interpreters) ===
+    neovim \
+    vim \
+    bash \
+    bash-completion \
+    \
+    # === Text-processing power tools ===
+    # The workhorses of shell scripting: gawk/sed/grep filter and transform
+    # text streams; perl/make round out the toolkit (grep/sed/awk for
+    # pattern matching and stream editing — BHB Ch.2).
+    perl \
+    make \
+    gawk \
+    sed \
+    grep \
+    \
+    # === Core UNIX utilities ===
+    # coreutils -> cat, ls, head, tail, sort, cut, tr, etc.
+    # findutils -> find and xargs.
+    # procps    -> ps, top, kill (process management).
+    # less = pager for long output; tree = directory tree view;
+    # jq = command-line JSON processor (handy for parsing tool output).
+    coreutils \
+    findutils \
+    procps \
+    less \
+    tree \
+    jq \
+    \
+    # === Manual pages (the `man` command) ===
+    # Kali's base image strips docs to save space; we reinstall them because
+    # "man bash" / "man grep" are constant references in the course.
+    man-db \
+    manpages \
+    manpages-posix \
+    \
+    # === Basic networking and downloaders ===
+    curl \
+    wget \
+    git \
+    git-lfs \
+    ca-certificates \
+    locales \
+    \
+    # === Linter (static analysis) for Bash scripts ===
+    # shellcheck flags bugs and bad patterns before you ever run a script.
+    shellcheck \
+    \
+    # === Recon and network scanning ===
+    # nmap = the standard port/service scanner.
+    # masscan = mass scanning across large IP ranges.
+    nmap \
+    masscan \
+    \
+    # === Packet capture and analysis ===
+    # tcpdump = classic terminal capture; tshark = Wireshark's CLI engine.
+    tcpdump \
+    tshark \
+    \
+    # === Assorted network utilities ===
+    netcat-traditional \
+    socat \
+    dnsutils \
+    whois \
+    traceroute \
+    mtr-tiny \
+    iproute2 \
+    net-tools \
+    iputils-ping \
+    \
+    # === Anonymity: Tor and friends ===
+    # tor = Tor client; torsocks = wrapper that pushes any command through
+    # Tor; proxychains4 = chains multiple proxies; obfs4proxy = obfuscates
+    # Tor traffic to evade blocking.
+    tor \
+    torsocks \
+    proxychains4 \
+    obfs4proxy \
+    \
+    # === Friendlier HTTP client for learning ===
+    httpie \
+    \
