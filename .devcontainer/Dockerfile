@@ -182,3 +182,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # in the earlier layer and still count toward image size.
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+# ----------------------------------------------------------------------------
+# (h) SHELL — which interpreter later RUN steps use
+# ----------------------------------------------------------------------------
+# By default Docker runs RUN commands through /bin/sh, a minimal POSIX
+# shell. We switch to bash so any later steps can use bash-only syntax
+# (arrays, [[ ]], etc.). This is the same sh-vs-bash distinction covered in
+# the shell basics (the shell as command interpreter — BHB Ch.1).
+SHELL ["/bin/bash", "-c"]
+
+
+# ----------------------------------------------------------------------------
+# (i) WORKDIR — default working directory inside the container
+# ----------------------------------------------------------------------------
+# Codespaces mounts the repo at /workspaces/<repo-name>. Setting WORKDIR to
+# /workspaces means new shells open next to the course files instead of /,
+# so relative paths in scripts behave as expected.
+WORKDIR /workspaces
