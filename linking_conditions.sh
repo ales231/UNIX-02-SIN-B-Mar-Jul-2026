@@ -8,3 +8,13 @@ mkdir "${DIR_NAME}"
 if [[ -f "${DIR_NAME}" ]] || [[ -d "${DIR_NAME}" ]]; then
 echo "${DIR_NAME} is either a file or a directory."
 fi
+if command; then
+# command was successful
+fi
+if ! command; then
+# command was unsuccessful
+fi
+if touch test123; then
+echo "OK: file created"
+fi
+OK: file created
