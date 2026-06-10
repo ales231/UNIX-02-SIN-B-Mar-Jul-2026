@@ -199,3 +199,19 @@ SHELL ["/bin/bash", "-c"]
 # /workspaces means new shells open next to the course files instead of /,
 # so relative paths in scripts behave as expected.
 WORKDIR /workspaces
+# ----------------------------------------------------------------------------
+# (j) Git configuration baked into the image
+# ----------------------------------------------------------------------------
+# --system writes to the machine-wide gitconfig so every shell inherits it.
+# - safe.directory '*' : trust any mounted repo. Needed because the mounted
+#   /workspaces/... files have a different UID than root inside the
+#   container, which otherwise triggers Git's "dubious ownership" block.
+# - init.defaultBranch main : new repos start on "main", silencing the
+#   master-vs-main warning.
+# - pull.rebase false : pull defaults to merge (simpler mental model).
+# - git lfs install --system : registers Git LFS hooks globally so repos
+#   using large-file storage work without per-repo setup.
+RUN git config --system --add safe.directory '*' \
+ && git config --system init.defaultBranch main \
+ && git config --system pull.rebase false \
+ && git lfs install --system
