@@ -167,3 +167,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # === Friendlier HTTP client for learning ===
     httpie \
     \
+# (f) --- Enable the Spanish locale ---
+ # sed edits /etc/locale.gen in place (-i) and uncomments the es_ES.UTF-8
+ # line by substituting "# es_ES.UTF-8" with "es_ES.UTF-8" (sed
+ # substitution / in-place stream editing — BHB Ch.2). locale-gen then
+ # compiles the locale data so LANG/LC_ALL set above actually resolve.
+ && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
+ && locale-gen \
+ \
+ # (g) --- Final cleanup: shrink the image ---
+ # apt leaves cache files and package lists behind after installing. We
+ # delete them in the SAME RUN so they never get committed into this layer.
+ # Cleaning in a later RUN would not help: the bytes would already be frozen
+ # in the earlier layer and still count toward image size.
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
