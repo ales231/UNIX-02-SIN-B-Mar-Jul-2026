@@ -215,3 +215,51 @@ RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
  && git lfs install --system
+ # ----------------------------------------------------------------------------
+# (k/l) Default shell prompt — written via a here-document
+# ----------------------------------------------------------------------------
+# This image keeps bash as the login shell rather than switching to zsh, so
+# instead of editing /root/.zshrc we write /root/.bashrc. (If we wanted zsh
+# as the default we would run `chsh -s /usr/bin/zsh root` to change root's
+# login shell and configure .zshrc instead — same idea, different shell.)
+#
+# A here-document feeds a literal block of text to a command as its stdin.
+# `cat > file <<'EOF' ... EOF` means: send every line up to EOF into cat,
+# which writes it to the file. Quoting the delimiter as 'EOF' disables
+# variable/backtick expansion, so the prompt escape codes are stored
+# verbatim instead of being evaluated now (here-documents and redirection —
+# BHB Ch.1).
+#
+# The __set_prompt function rebuilds PS1 (bash's primary prompt string)
+# before each prompt. It captures the previous command's exit status ($?)
+# first, then shows a green ✓ on success or a red ✗ with the code on failure
+# (exit status / $? — BHB Ch.1). PROMPT_COMMAND tells bash to run that
+# function before drawing every prompt. PS1 itself prints the course tag,
+# the current directory (\W), the status mark, and the trailing $.
+RUN cat > /root/.bashrc <<'EOF'
+
+
+
+__set_prompt() {
+    local ec=$?
+    local mark
+    if [ $ec -eq 0 ]; then
+        mark='\[\e[32m\]✓\[\e[0m\]'
+    else
+        mark="\[\e[31m\]✗ $ec\[\e[0m\]"
+    fi
+    PS1="\[\e[36m\][Alex Alban]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
+}
+PROMPT_COMMAND=__set_prompt
+EOF
+
+
+# ----------------------------------------------------------------------------
+# (m) CMD — the default process when the container starts
+# ----------------------------------------------------------------------------
+# CMD differs from RUN: RUN executes at BUILD time and bakes results into
+# the image, while CMD only defines what runs at START time when a container
+# launches. Here it starts an interactive bash shell. Codespaces overrides
+# this with its own VS Code terminal, but defining it keeps the image usable
+# under plain `docker run` too.
+CMD ["/bin/bash"]
