@@ -181,6 +181,8 @@ PTS_COMENTARIOS=$(calc "$PTS_MSG + $PTS_DENSIDAD")
 TOTAL_PTS=$(calc "$PTS_CLASE + $PTS_VARIEDAD + $PTS_HORARIO + $PTS_COMENTARIOS")
 # El puntaje minimo es 1 (la consigna pide calificar del 1 al 100)
 NOTA_FINAL=$(calc "($TOTAL_PTS < 1 ? 1 : $TOTAL_PTS)")
+# La consigna pide calificar SOBRE 100 -> se entrega como numero entero
+NOTA_ENTERA=$(awk "BEGIN{printf \"%.0f\", $NOTA_FINAL}")
 
 echo "============================================================"
 echo "  CALIFICACION DE LA RAMA: $RAMA"
@@ -195,5 +197,5 @@ printf "  3) Horario/regular (20) : %6s  -> %d dias trabajados\n"     "$(round2 
 printf "  4) Comentarios     (20) : %6s  -> msgs %s/10 | codigo %s/10 (%.1f%% densidad)\n" \
         "$(round2 "$PTS_COMENTARIOS")" "$(round2 "$PTS_MSG")" "$(round2 "$PTS_DENSIDAD")" "$DENSIDAD"
 echo "------------------------------------------------------------"
-printf "  NOTA FINAL : %s / 100\n" "$(round2 "$NOTA_FINAL")"
+printf "  NOTA FINAL : %d / 100\n" "$NOTA_ENTERA"
 echo "============================================================"
