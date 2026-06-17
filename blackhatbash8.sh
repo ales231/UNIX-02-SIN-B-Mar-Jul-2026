@@ -21,3 +21,8 @@ root       20100       1  0 13:12 ?        00:00:00 sleep 1
 root       20123    1171  0 13:12 pts/0    00:00:00 grep sleep   #Shows all processes containing "sleep": the container keepalive (sleep 1), your job (sleep 100), and the grep itself
 jobs 
 [1]+  Ejecutando                 sleep 100 &  #Job #1 is still running in the background
+fg %1
+sleep 1000
+bg %1
+[1]+ sleep 100 &
+nohup ./exercise2.sh &
