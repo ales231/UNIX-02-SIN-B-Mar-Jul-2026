@@ -26,3 +26,4 @@ sleep 1000
 bg %1
 [1]+ sleep 100 &
 nohup ./exercise2.sh &
+echo $PATH

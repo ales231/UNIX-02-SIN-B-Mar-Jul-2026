@@ -34,3 +34,39 @@
 ./exercise2.sh: línea 65: printf: 10.0000: número inválido
 ./exercise2.sh: línea 197: printf: 20.8417: número inválido
   4) Comentarios     (20) :  14,00  -> msgs 4,00/10 | codigo 10,00/10 (20,0% densidad)
+============================================================
+  CALIFICACION DE LA RAMA: blackhatbash
+  Repositorio: UNIX-02-SIN-B-Mar-Jul-2026
+  Zona horaria de clase: America/Guayaquil  (7:00 - 9:00)
+============================================================
+  Total de commits evaluados : 75
+------------------------------------------------------------
+./exercise2.sh: línea 65: printf: 38.9333: número inválido
+  1) Hora de clase   (40) :  38,00  -> 73/75 commits en clase
+./exercise2.sh: línea 65: printf: 19.7330: número inválido
+  2) Variedad        (20) :  19,00  -> 73 msgs unicos / 75
+./exercise2.sh: línea 65: printf: 20.0000: número inválido
+  3) Horario/regular (20) :  20,00  -> 9 dias trabajados
+./exercise2.sh: línea 65: printf: 14.2667: número inválido
+./exercise2.sh: línea 65: printf: 4.2667: número inválido
+./exercise2.sh: línea 65: printf: 10.0000: número inválido
+./exercise2.sh: línea 197: printf: 20.6349: número inválido
+  4) Comentarios     (20) :  14,00  -> msgs 4,00/10 | codigo 10,00/10 (20,0% densidad)
+============================================================
+  CALIFICACION DE LA RAMA: blackhatbash
+  Repositorio: UNIX-02-SIN-B-Mar-Jul-2026
+  Zona horaria de clase: America/Guayaquil  (7:00 - 9:00)
+============================================================
+  Total de commits evaluados : 75
+------------------------------------------------------------
+./exercise2.sh: línea 65: printf: 38.9333: número inválido
+  1) Hora de clase   (40) :  38,00  -> 73/75 commits en clase
+./exercise2.sh: línea 65: printf: 19.7330: número inválido
+  2) Variedad        (20) :  19,00  -> 73 msgs unicos / 75
+./exercise2.sh: línea 65: printf: 20.0000: número inválido
+  3) Horario/regular (20) :  20,00  -> 9 dias trabajados
+./exercise2.sh: línea 65: printf: 14.2667: número inválido
+./exercise2.sh: línea 65: printf: 4.2667: número inválido
+./exercise2.sh: línea 65: printf: 10.0000: número inválido
+./exercise2.sh: línea 197: printf: 20.6349: número inválido
+  4) Comentarios     (20) :  14,00  -> msgs 4,00/10 | codigo 10,00/10 (20,0% densidad)
