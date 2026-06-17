@@ -1,0 +1,5 @@
+name,domain,result,datetime
+mysite,google.com,success,2026-06-17 13:55:24
+testsite,nostarch.com,success,2026-06-17 13:55:24
+mysite,google.com,success,2026-06-17 13:57:20
+mysite,google.com,success,2026-06-17 14:00:55
